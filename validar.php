@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Validar color (no es obligatorio, pero si se selecciona, debe ser válido)
-    if (isset($_POST["eligeColor"]) && !in_array($_POST["eligeColor"], ["Rojo", "Azul", "Verde"])) {
+    if (isset($_POST["color"]) && !in_array($_POST["color"], ["rojo", "azul", "verde"])) {
         $errores[] = "El color seleccionado no es válido.";
     }
 
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<p><strong>Correo:</strong> " . sanitize_input($_POST["correo"]) . "</p>";
         echo "<p><strong>Contraseña:</strong> [Oculta por seguridad]</p>";
         echo "<p><strong>Antigüedad:</strong> " . sanitize_input($_POST["fecha"]) . "</p>";
-        echo "<p><strong>Color elegido:</strong> " . (isset($_POST["eligeColor"]) ? sanitize_input($_POST["eligeColor"]) : "No seleccionado") . "</p>";
+        echo "<p><strong>Color elegido:</strong> " . (isset($_POST["color"]) ? sanitize_input($_POST["color"]) : "No seleccionado") . "</p>";
         echo "<p><strong>Comentarios:</strong> " . sanitize_input($_POST["comentarios"]) . "</p>";
         echo "<p><strong>Aceptó políticas:</strong> Sí</p>";
     } else {
